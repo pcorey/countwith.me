@@ -13,6 +13,9 @@ body {
   margin: 40px auto;
   height: calc(100% - 80px); }
 
+body, html {
+  overflow: hidden; }
+
 .header {
   position: relative;
   top: calc(50% - 180px);
@@ -81,5 +84,18 @@ body {
   right: auto;
   font-size: 30px;
   color: tomato; }
+
+footer {
+  position: fixed;
+  width: 80%;
+  height: 250px;
+  left: 0;
+  bottom: 0;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 80%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(80%, white));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 80%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 80%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 80%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 80%); }
 
 /*# sourceMappingURL=countwith.me.css.map */

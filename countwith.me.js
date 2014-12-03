@@ -1,24 +1,34 @@
 Counts = new Mongo.Collection('counts');
+var prompt = '???';
 
 if (Meteor.isClient) {
 
+    function count(input) {
+        if (input.innerHTML && input.innerHTML != prompt) {
+            Meteor.call('count', parseInt(input.innerHTML));
+        }
+    }
+
     Template.body.events({
         'click .action': function() {
-            console.log('yo');
+            var input = document.querySelector('.number[contenteditable]');
+            count(input);
+            input.innerHTML = prompt;
         },
         'focus .number[contenteditable]': function(e) {
             e.target.innerHTML = '';
         },
         'blur .number[contenteditable]': function(e) {
-            e.target.innerHTML = '???';
+            if (!e.target.innerHTML) {
+                e.target.innerHTML = prompt;
+            }
         },
         'keypress .number[contenteditable]': function (e) {
             var code = e.keyCode || e.which;
-            console.log(code);
             if (!_.contains([48, 49, 50, 51, 52, 53, 54, 55, 56, 57], code)) {
-                console.log('!contains');
                 if (code == 13) {
-                    console.log('enter');
+                    count(e.target);
+                    e.target.innerHTML = '';
                 }
                 e.preventDefault();
                 return false;
@@ -33,8 +43,28 @@ if (Meteor.isClient) {
     });
 }
 
-if (Meteor.isServer) {
-    Meteor.startup(function () {
-        // code to run on server at startup
-    });
-}
+Meteor.methods({
+    count: function(number) {
+        var topCount = Counts.findOne({}, {sort: {timestamp: -1}});
+        number = number || 0;
+
+        if (topCount && number != topCount.number + 1) {
+            Counts.insert({
+                number: number,
+                timestamp: new Date(),
+                wrong: true
+            });
+            Counts.insert({
+                number: 1,
+                timestamp: new Date(),
+                wrong: false
+            });
+            return;
+        }
+        Counts.insert({
+            number: number,
+            timestamp: new Date(),
+            wrong: false
+        });
+    }
+});

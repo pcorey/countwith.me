@@ -1,0 +1,25 @@
+.numbers {
+    .number {
+        color: #131313;
+        display: block;
+        font-family: 'Changa One';
+        font-size: 30px;
+        line-height: 1;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+
+        i {
+            font-style: normal;
+            color: #c02020;
+        }
+
+        &[contenteditable] {
+            display: inline-block;
+            outline: none;
+            color: #ddd;
+            border-bottom: 2px solid lightblue;
+            min-width: 3ex;
+        }
+    }
+}

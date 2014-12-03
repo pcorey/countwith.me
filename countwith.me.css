@@ -42,9 +42,8 @@ body {
     font-size: 75.0px;
     fill: #131313; }
 
-.counts p {
+.numbers .number {
   color: #131313;
-  position: relative;
   display: block;
   font-family: 'Changa One';
   font-size: 30px;
@@ -52,28 +51,25 @@ body {
   margin: 0;
   text-align: center;
   white-space: nowrap; }
-  .counts p i {
+  .numbers .number i {
     font-style: normal;
     color: #c02020; }
-  .counts p span[contenteditable] {
+  .numbers .number[contenteditable] {
     display: inline-block;
     outline: none;
     color: #ddd;
     border-bottom: 2px solid lightblue;
     min-width: 3ex; }
-.counts .number {
-  margin: 0 50px; }
-.counts .timestamp, .counts .action {
-  display: inline-block;
-  width: 250px;
+
+.timestamps .timestamp {
+  color: #ddd;
+  position: relative;
+  display: block;
+  font-family: 'Changa One';
   font-size: 15px;
   line-height: 30px;
-  color: #ddd;
-  text-align: left; }
-.counts .action {
-  cursor: pointer;
-  right: auto;
-  font-size: 30px;
-  color: tomato; }
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=countwith.me.css.map */

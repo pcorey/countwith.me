@@ -11,74 +11,27 @@
 
 
 <body>
-    <div class="header">
+    <section class="header">
         <svg width="250" height="250" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="46"/>
           <text x="1" y="15" transform="translate(0,15)">count with</text>
           <text x="0" y="70" class="hero" transform="translate(0,15)">ME</text>
         </svg>
         <p>How high can the internet count?</p>
-    </div>
+    </section>
 
-    <section class="counts">
-        <p><span class="number" contenteditable>???</span><span class="action">Count!</span></p>
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        {{> count}}
-        <!-- <p>132<span class="timestamp">11/2/2014 8:57:32 PM</span></p>
-        <p><i>1378</i><span class="timestamp">11/2/2014 8:57:32 PM</span></p> -->
+    <section class="numbers">
+        <span class="number" contenteditable>???</span>
+        {{#each counts}}
+            <span class="number">{{number}}</span>
+        {{/each}}
+    </section>
+
+    <section class="timestamps">
+        <span class="action">Count!</span>
+        {{#each counts}}
+            <span class="timestamp">{{timestamp}}</span>
+        {{/each}}
     </section>
 </body>
 

@@ -1,0 +1,32 @@
+.header {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: calc(25% - 150px);
+  .placeholder {
+    float: right;
+  }
+  p {
+    margin-top: 20px;
+    font-family: 'Raleway';
+    font-size: 18px;
+    color: #888;
+    width: 250px;
+  }
+  svg {
+    display: inline-block;
+  }
+  svg circle {
+    fill: transparent;
+    stroke: tomato;
+    stroke-width: 8px;
+  }
+  svg text {
+    font-family: 'Changa One';
+    font-size: 20.3px;
+    fill: #131313;
+    &.hero {
+      font-size: 75.0px;
+      fill: #131313;
+    }
+  }
+}

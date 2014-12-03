@@ -1,1 +1,70 @@
-/* CSS declarations go here */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+.header {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: calc(25% - 150px); }
+  .header .placeholder {
+    float: right; }
+  .header p {
+    margin-top: 20px;
+    font-family: 'Raleway';
+    font-size: 18px;
+    color: #888;
+    width: 250px; }
+  .header svg {
+    display: inline-block; }
+  .header svg circle {
+    fill: transparent;
+    stroke: tomato;
+    stroke-width: 8px; }
+  .header svg text {
+    font-family: 'Changa One';
+    font-size: 20.3px;
+    fill: #131313; }
+    .header svg text.hero {
+      font-size: 75.0px;
+      fill: #131313; }
+
+p {
+  color: #131313;
+  position: relative;
+  display: block;
+  font-family: 'Changa One';
+  font-size: 30px;
+  line-height: 1;
+  margin: 0;
+  text-align: center; }
+  p i {
+    font-style: normal;
+    color: #c02020; }
+  p span[contenteditable] {
+    display: inline-block;
+    outline: none;
+    color: #ddd;
+    border-bottom: 2px solid lightblue;
+    min-width: 3ex; }
+
+.timestamp, .action {
+  position: absolute;
+  right: 0;
+  font-size: 15px;
+  line-height: 30px;
+  color: #ddd; }
+
+.action {
+  cursor: pointer;
+  right: auto;
+  margin-left: 16px;
+  font-size: 30px;
+  color: tomato; }
+
+body {
+  margin: 40px auto;
+  width: 600px; }
+
+/*# sourceMappingURL=countwith.me.css.map */

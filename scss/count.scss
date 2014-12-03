@@ -1,0 +1,37 @@
+p {
+  color: #131313;
+  position: relative;
+  display: block;
+  font-family: 'Changa One';
+  font-size: 30px;
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  i {
+    font-style: normal;
+    color: #c02020;
+  }
+  span[contenteditable] {
+    display: inline-block;
+    outline: none;
+    color: #ddd;
+    border-bottom: 2px solid lightblue;
+    min-width: 3ex;
+  }
+}
+
+.timestamp, .action {
+  position: absolute;
+  right: 0;
+  font-size: 15px;
+  line-height: 30px;
+  color: #ddd;
+}
+
+.action {
+  cursor: pointer;
+  right: auto;
+  margin-left: 16px;
+  font-size: 30px;
+  color: tomato;
+}

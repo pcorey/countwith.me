@@ -52,12 +52,15 @@ body, html {
     font-family: 'Changa One';
     font-size: 30px;
     line-height: 1;
-    margin: 0 150px;
+    margin: 0 50px;
+    min-width: 10em;
     text-align: center;
     white-space: nowrap; }
     .numbers .number i {
       font-style: normal;
       color: #c02020; }
+    .numbers .number.wrong {
+      color: #C00000; }
     .numbers .number[contenteditable] {
       display: inline-block;
       outline: none;

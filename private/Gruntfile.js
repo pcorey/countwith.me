@@ -14,6 +14,12 @@ module.exports = function(grunt) {
                 dest: '../js/',
                 expand: true
             },
+            lodash: {
+                cwd: 'bower_components',
+                src: 'lodash/dist/lodash.min.js',
+                dest: '../js/',
+                expand: true
+            }
         },
         watch: {
             sass: {

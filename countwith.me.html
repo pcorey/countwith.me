@@ -25,7 +25,7 @@
     <section class="numbers">
         <span class="number" contenteditable>???</span>
         {{#each counts}}
-            <span class="number">{{number}}</span>
+            <span class="number {{#if wrong}}wrong{{/if}}">{{number}}</span>
         {{/each}}
     </section>
 

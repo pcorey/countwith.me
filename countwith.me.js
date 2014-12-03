@@ -1,21 +1,30 @@
 Counts = new Mongo.Collection('counts');
 
 if (Meteor.isClient) {
-    // // counter starts at 0
-    // Session.setDefault("counter", 0);
 
-    // Template.hello.helpers({
-    //     counter: function () {
-    //         return Session.get("counter");
-    //     }
-    // });
-
-    // Template.hello.events({
-    //     'click button': function () {
-    //         // increment the counter when button is clicked
-    //         Session.set("counter", Session.get("counter") + 1);
-    //     }
-    // });
+    Template.body.events({
+        'click .action': function() {
+            console.log('yo');
+        },
+        'focus .number[contenteditable]': function(e) {
+            e.target.innerHTML = '';
+        },
+        'blur .number[contenteditable]': function(e) {
+            e.target.innerHTML = '???';
+        },
+        'keypress .number[contenteditable]': function (e) {
+            var code = e.keyCode || e.which;
+            console.log(code);
+            if (!_.contains([48, 49, 50, 51, 52, 53, 54, 55, 56, 57], code)) {
+                console.log('!contains');
+                if (code == 13) {
+                    console.log('enter');
+                }
+                e.preventDefault();
+                return false;
+            }
+        }
+    });
 
     Template.body.helpers({
         counts: function() {

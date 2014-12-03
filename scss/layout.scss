@@ -1,0 +1,22 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+    margin: 40px auto;
+    width: 600px;
+    height: calc(100% - 80px);
+}
+
+.header {
+    position: relative;
+    top: calc(50% - 180px);
+    height: 50%;
+}
+
+.counts {
+
+}

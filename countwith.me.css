@@ -4,33 +4,45 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-.header {
-  position: fixed;
-  top: calc(50% - 150px);
-  left: calc(25% - 150px); }
-  .header .placeholder {
-    float: right; }
-  .header p {
-    margin-top: 20px;
-    font-family: 'Raleway';
-    font-size: 18px;
-    color: #888;
-    width: 250px; }
-  .header svg {
-    display: inline-block; }
-  .header svg circle {
-    fill: transparent;
-    stroke: tomato;
-    stroke-width: 8px; }
-  .header svg text {
-    font-family: 'Changa One';
-    font-size: 20.3px;
-    fill: #131313; }
-    .header svg text.hero {
-      font-size: 75.0px;
-      fill: #131313; }
+html {
+  height: 100%; }
 
-p {
+body {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  width: 600px;
+  height: calc(100% - 80px); }
+
+.header {
+  position: relative;
+  top: calc(50% - 180px);
+  height: 50%; }
+
+.header .placeholder {
+  float: right; }
+.header p {
+  margin-top: 20px;
+  font-family: 'Raleway';
+  font-size: 18px;
+  color: #888;
+  width: 250px;
+  text-align: center; }
+.header svg {
+  display: inline-block; }
+.header svg circle {
+  fill: transparent;
+  stroke: tomato;
+  stroke-width: 8px; }
+.header svg text {
+  font-family: 'Changa One';
+  font-size: 20.3px;
+  fill: #131313; }
+  .header svg text.hero {
+    font-size: 75.0px;
+    fill: #131313; }
+
+.counts p {
   color: #131313;
   position: relative;
   display: block;
@@ -38,33 +50,30 @@ p {
   font-size: 30px;
   line-height: 1;
   margin: 0;
-  text-align: center; }
-  p i {
+  text-align: center;
+  white-space: nowrap; }
+  .counts p i {
     font-style: normal;
     color: #c02020; }
-  p span[contenteditable] {
+  .counts p span[contenteditable] {
     display: inline-block;
     outline: none;
     color: #ddd;
     border-bottom: 2px solid lightblue;
     min-width: 3ex; }
-
-.timestamp, .action {
-  position: absolute;
-  right: 0;
+.counts .number {
+  margin: 0 50px; }
+.counts .timestamp, .counts .action {
+  display: inline-block;
+  width: 250px;
   font-size: 15px;
   line-height: 30px;
-  color: #ddd; }
-
-.action {
+  color: #ddd;
+  text-align: left; }
+.counts .action {
   cursor: pointer;
   right: auto;
-  margin-left: 16px;
   font-size: 30px;
   color: tomato; }
-
-body {
-  margin: 40px auto;
-  width: 600px; }
 
 /*# sourceMappingURL=countwith.me.css.map */

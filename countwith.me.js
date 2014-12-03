@@ -1,3 +1,5 @@
+Counts = new Mongo.Collection('counts');
+
 if (Meteor.isClient) {
     // // counter starts at 0
     // Session.setDefault("counter", 0);
@@ -15,17 +17,10 @@ if (Meteor.isClient) {
     //     }
     // });
 
-    var counts = [];
-    var offset = 0;
-    for (var i = 0; i < 100; i++, offset++) {
-        counts.push({
-            number: 100 - i,
-            timestamp: moment().subtract(offset, 'minutes').toDate()
-        });
-    }
-
     Template.body.helpers({
-        counts: counts
+        counts: function() {
+            return Counts.find({}, {sort: {timestamp: -1}, limit: 50});
+        }
     });
 }
 

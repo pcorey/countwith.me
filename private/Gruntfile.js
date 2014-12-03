@@ -7,15 +7,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-        express: {
-            options: {
-                
+        copy: {
+            moment: {
+                cwd: 'bower_components',
+                src: 'moment/min/moment.min.js',
+                dest: '../js/',
+                expand: true
             },
-            server: {
-                options: {
-                    script: 'index.js',
-                }
-            }
         },
         watch: {
             sass: {
@@ -28,5 +26,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 };

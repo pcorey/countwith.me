@@ -11,7 +11,6 @@ body {
   display: flex;
   justify-content: center;
   margin: 40px auto;
-  width: 600px;
   height: calc(100% - 80px); }
 
 .header {
@@ -42,24 +41,26 @@ body {
     font-size: 75.0px;
     fill: #131313; }
 
-.numbers .number {
-  color: #131313;
-  display: block;
-  font-family: 'Changa One';
-  font-size: 30px;
-  line-height: 1;
-  margin: 0;
-  text-align: center;
-  white-space: nowrap; }
-  .numbers .number i {
-    font-style: normal;
-    color: #c02020; }
-  .numbers .number[contenteditable] {
-    display: inline-block;
-    outline: none;
-    color: #ddd;
-    border-bottom: 2px solid lightblue;
-    min-width: 3ex; }
+.numbers {
+  text-align: center; }
+  .numbers .number {
+    color: #131313;
+    display: block;
+    font-family: 'Changa One';
+    font-size: 30px;
+    line-height: 1;
+    margin: 0 150px;
+    text-align: center;
+    white-space: nowrap; }
+    .numbers .number i {
+      font-style: normal;
+      color: #c02020; }
+    .numbers .number[contenteditable] {
+      display: inline-block;
+      outline: none;
+      color: #ddd;
+      border-bottom: 2px solid lightblue;
+      min-width: 3ex; }
 
 .timestamps .timestamp {
   color: #ddd;
@@ -69,7 +70,16 @@ body {
   font-size: 15px;
   line-height: 30px;
   margin: 0;
-  text-align: center;
   white-space: nowrap; }
+.timestamps .action {
+  font-family: 'Changa One';
+  display: inline-block;
+  width: 250px;
+  line-height: 30px;
+  text-align: left;
+  cursor: pointer;
+  right: auto;
+  font-size: 30px;
+  color: tomato; }
 
 /*# sourceMappingURL=countwith.me.css.map */

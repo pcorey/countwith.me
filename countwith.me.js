@@ -15,13 +15,17 @@ if (Meteor.isClient) {
     //     }
     // });
 
+    var counts = [];
+    var offset = 0;
+    for (var i = 0; i < 100; i++, offset++) {
+        counts.push({
+            number: 100 - i,
+            timestamp: moment().subtract(offset, 'minutes').toDate()
+        });
+    }
+
     Template.body.helpers({
-        counts: [
-            {number: 123, timestamp: new Date()},
-            {number: 124, timestamp: new Date()},
-            {number: 125, timestamp: new Date()},
-            {number: 126, timestamp: new Date()},
-        ]
+        counts: counts
     });
 }
 

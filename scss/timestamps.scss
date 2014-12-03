@@ -7,7 +7,19 @@
         font-size: 15px;
         line-height: 30px;
         margin: 0;
-        text-align: center;
         white-space: nowrap;
+    }
+
+    .action {
+        font-family: 'Changa One';
+        display: inline-block;
+        width: 250px;
+        line-height: 30px;
+        text-align: left;
+        cursor: pointer;
+        right: auto;
+        //margin-left: 16px;
+        font-size: 30px;
+        color: tomato;
     }
 }

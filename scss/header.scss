@@ -1,4 +1,6 @@
 .header {
+    transition: all 0.5s ease-in-out;
+
     .placeholder {
         float: right;
     }
@@ -7,8 +9,10 @@
         font-family: 'Raleway';
         font-size: 18px;
         color: #888;
-        width: 250px;
         text-align: center;
+    }
+    a {
+        text-decoration: none;
     }
     svg {
         display: inline-block;

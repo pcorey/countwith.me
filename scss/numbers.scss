@@ -1,12 +1,10 @@
 .numbers {
     text-align: center;
-    min-width: calc(10em);
-    margin: 0 50px;
 
     font-family: 'Changa One';
     font-size: 30px;
 
-    transition: opacity 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
     opacity: 1;
 
     .number {
@@ -15,7 +13,7 @@
         font-family: 'Changa One';
         font-size: 30px;
         line-height: 1;
-        min-width: 10em;
+        //min-width: 10em;
         text-align: center;
         white-space: nowrap;
 

@@ -45,7 +45,7 @@ if (Meteor.isClient) {
             if (!Session.get('ready')) {
                 return [];
             }
-            return Counts.find({}, {sort: {timestamp: -1}, limit: 50});
+            return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
         },
         notReady: function() {
             return !Session.get('ready');
@@ -61,6 +61,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
     count: function(number) {
+        this.unblock();
         var topCount = Counts.findOne({}, {sort: {timestamp: -1}});
         number = number || 0;
 

@@ -42,6 +42,9 @@ if (Meteor.isClient) {
 
     Template.body.helpers({
         counts: function() {
+            if (!Session.get('ready')) {
+                return [];
+            }
             return Counts.find({}, {sort: {timestamp: -1}, limit: 50});
         },
         notReady: function() {

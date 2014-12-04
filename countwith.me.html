@@ -22,14 +22,14 @@
         <p>How high can the internet count?</p>
     </section>
 
-    <section class="numbers">
+    <section class="numbers {{#if notReady}}not-ready{{/if}}">
         <span class="number" contenteditable>???</span>
         {{#each counts}}
             <span class="number {{#if wrong}}wrong{{/if}}">{{number}}</span>
         {{/each}}
     </section>
 
-    <section class="timestamps">
+    <section class="timestamps {{#if notReady}}not-ready{{/if}}">
         <span class="action">Count!</span>
         {{#each counts}}
             <span class="timestamp">{{prettifyDate timestamp}}</span>

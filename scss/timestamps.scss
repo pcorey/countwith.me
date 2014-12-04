@@ -1,4 +1,9 @@
 .timestamps {
+    min-width: 250px;
+
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+
     .timestamp {
         color: #ddd;
         position: relative;
@@ -21,5 +26,9 @@
         //margin-left: 16px;
         font-size: 30px;
         color: tomato;
+    }
+
+    &.not-ready {
+        opacity: 0;
     }
 }

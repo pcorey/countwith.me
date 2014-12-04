@@ -1,5 +1,13 @@
 .numbers {
     text-align: center;
+    min-width: calc(10em);
+    margin: 0 50px;
+
+    font-family: 'Changa One';
+    font-size: 30px;
+
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
 
     .number {
         color: #131313;
@@ -7,7 +15,6 @@
         font-family: 'Changa One';
         font-size: 30px;
         line-height: 1;
-        margin: 0 50px;
         min-width: 10em;
         text-align: center;
         white-space: nowrap;
@@ -28,5 +35,9 @@
             border-bottom: 2px solid lightblue;
             min-width: 3ex;
         }
+    }
+
+    &.not-ready {
+        opacity: 0;
     }
 }

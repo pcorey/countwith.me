@@ -3,6 +3,10 @@ var prompt = '???';
 
 if (Meteor.isClient) {
 
+    Meteor.subscribe('counts', function() {
+        Session.set('ready', true);
+    });
+
     function count(input) {
         if (input.innerHTML && input.innerHTML != prompt) {
             Meteor.call('count', parseInt(input.innerHTML));
@@ -39,7 +43,16 @@ if (Meteor.isClient) {
     Template.body.helpers({
         counts: function() {
             return Counts.find({}, {sort: {timestamp: -1}, limit: 50});
+        },
+        notReady: function() {
+            return !Session.get('ready');
         }
+    });
+}
+
+if (Meteor.isServer) {
+    Meteor.publish('counts', function () {
+        return Counts.find();
     });
 }
 

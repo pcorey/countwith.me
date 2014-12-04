@@ -9,12 +9,15 @@ html {
   margin: 40px; }
 
 body {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
   margin: 0 auto;
   height: calc(100% - 80px); }
   @media (max-width: 535px) {
     body {
+      -webkit-flex-wrap: wrap;
       flex-wrap: wrap; } }
 
 body, html {

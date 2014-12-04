@@ -26,16 +26,12 @@
 
     <section class="numbers {{#if notReady}}not-ready{{/if}}">
         <span class="number" contenteditable>???</span>
-        {{#each counts}}
-            <span class="number {{#if wrong}}wrong{{/if}}">{{number}}</span>
-        {{/each}}
+        {{> numbers}}
     </section>
 
     <section class="timestamps {{#if notReady}}not-ready{{/if}}">
         <span class="action">Count!</span>
-        {{#each counts}}
-            <span class="timestamp">{{prettifyDate timestamp}}</span>
-        {{/each}}
+        {{> timestamps}}
     </section>
 
     <footer>
@@ -52,3 +48,15 @@
         ga('send', 'pageview');
     </script>
 </body>
+
+<template name="numbers">
+    {{#each counts}}
+        <span class="number {{#if wrong}}wrong{{/if}}">{{number}}</span>
+    {{/each}}
+</template>
+
+<template name="timestamps">
+    {{#each counts}}
+        <span class="timestamp">{{prettifyDate timestamp}}</span>
+    {{/each}}
+</template>

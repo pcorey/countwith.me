@@ -4,6 +4,7 @@ var prompt = '???';
 if (Meteor.isClient) {
 
     Meteor.subscribe('counts', function() {
+        console.log('ready!');
         Session.set('ready', true);
     });
 
@@ -41,16 +42,42 @@ if (Meteor.isClient) {
     });
 
     Template.body.helpers({
+        notReady: function() {
+            return !Session.get('ready');
+        }
+    });
+
+    Template.numbers.helpers({
         counts: function() {
             if (!Session.get('ready')) {
                 return [];
             }
             return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
         },
-        notReady: function() {
-            return !Session.get('ready');
-        }
     });
+
+    Template.timestamps.helpers({
+        counts: function() {
+            if (!Session.get('ready')) {
+                return [];
+            }
+            return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
+        },
+    });
+
+    function logRenders () {
+        _.each(Object.keys(Template), function (key) {
+            var template = Template[key];
+            var oldRender = template.renderFunction;
+            var counter = 0;
+     
+            template.renderFunction = function () {
+                console.log(key, "render count: ", ++counter);
+                return oldRender.apply(this, arguments);
+            };
+        });
+    }
+        logRenders();
 }
 
 if (Meteor.isServer) {

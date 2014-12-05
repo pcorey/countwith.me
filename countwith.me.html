@@ -1,5 +1,6 @@
 <head>
         <title>countwith.me</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="http://1pxsolidtomato.com/img/favicon.png">
         <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"></script>
         <script>
@@ -16,9 +17,10 @@
     <section class="header">
         <a href="http://countwith.me">
             <svg width="100%" height="100%" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="46"/>
-              <text x="1" y="15" transform="translate(0,15)">count with</text>
-              <text x="0" y="70" class="hero" transform="translate(0,15)">ME</text>
+                <circle class="base {{#if ready}}ready{{/if}}" cx="50" cy="50" r="46"/>
+                <circle class="loader {{#if ready}}finished{{/if}}" cx="50" cy="50" r="46"/>
+                <text x="1" y="15" transform="translate(0,15)">count with</text>
+                <text x="0" y="70" class="hero" transform="translate(0,15)">ME</text>
             </svg>
         </a>
         <p>How high can the internet count?</p>

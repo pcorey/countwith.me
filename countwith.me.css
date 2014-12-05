@@ -72,6 +72,9 @@ body, html {
       margin: 0;
       width: 100px; } }
 
+/*
+Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
+*/
 .header {
   transition: all 0.5s ease-in-out; }
   .header .placeholder {
@@ -97,7 +100,39 @@ body, html {
     .header svg text.hero {
       font-size: 75.0px;
       fill: #131313; }
+  .header svg .base {
+    opacity: 0.2;
+    transition: opacity 0.5s ease-in-out; }
+    .header svg .base.ready {
+      opacity: 1; }
+  .header svg .loader {
+    transform-origin: center;
+    stroke-dasharray: 288.88;
+    stroke-linecap: round;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    -webkit-animation: dasher 1.5s ease-in-out infinite, rotator 1.5s linear infinite;
+    transition: opacity 0.5s ease-in-out; }
+    .header svg .loader.finished {
+      opacity: 0; }
 
+@-webkit-keyframes dasher {
+  0% {
+    stroke-dashoffset: 288.88; }
+  50% {
+    stroke-dashoffset: 72.22; }
+  100% {
+    stroke-dashoffset: 288.88; } }
+@-webkit-keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 .numbers {
   text-align: center;
   font-family: 'Changa One';

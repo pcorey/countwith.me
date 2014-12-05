@@ -4,7 +4,10 @@ var prompt = '???';
 if (Meteor.isClient) {
 
     Meteor.subscribe('counts', function() {
-        Session.set('ready', true);
+        setTimeout(function() {
+            Session.set('ready', true);
+        }, 2000);
+        
     });
 
     function count(input) {
@@ -46,6 +49,9 @@ if (Meteor.isClient) {
     Template.body.helpers({
         notReady: function() {
             return !Session.get('ready');
+        },
+        ready: function() {
+            return Session.get('ready');
         }
     });
 

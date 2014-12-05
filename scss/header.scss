@@ -1,3 +1,10 @@
+/*
+Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
+*/
+
+$radius: 46;
+$offset: 2*3.14*$radius;
+
 .header {
     transition: all 0.5s ease-in-out;
 
@@ -31,4 +38,43 @@
             fill: #131313;
         }
     }
+
+    svg {
+        .base {
+            opacity: 0.2;
+            transition: opacity 0.5s ease-in-out;
+            &.ready {
+                opacity: 1;
+            }
+        }
+        .loader {
+            transform-origin: center;
+            stroke-dasharray: $offset;
+            stroke-linecap: round;
+            stroke-dashoffset: 0;
+            transform-origin: center;
+            -webkit-animation: dasher 1.5s ease-in-out infinite,
+                               rotator 1.5s linear infinite;
+            transition: opacity 0.5s ease-in-out;
+            &.finished {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes dasher {
+    0%   { stroke-dashoffset: $offset; }
+    50%  { stroke-dashoffset: $offset/4; }
+    100% { stroke-dashoffset: $offset;}
+}
+
+@-webkit-keyframes rotator {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes hide {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
 }

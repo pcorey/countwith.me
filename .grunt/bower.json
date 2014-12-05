@@ -1,0 +1,21 @@
+{
+  "name": ".grunt",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pcorey/countwith.me",
+  "authors": [
+    "Pete Corey <petecorey@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "moment": "~2.8.4"
+  }
+}

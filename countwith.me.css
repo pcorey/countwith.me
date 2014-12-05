@@ -54,13 +54,16 @@ body, html {
       .header p {
         display: inline-block;
         width: calc(100% - 104px);
-        vertical-align: middle; } }
+        vertical-align: middle; }
+      .header .highscore {
+        display: none; } }
 
 .numbers {
   min-width: 10em;
   margin: 0 50px; }
   @media (max-width: 925px) {
     .numbers {
+      min-width: 5em;
       margin: 0 50px; } }
   @media (max-width: 535px) {
     .numbers {
@@ -128,7 +131,7 @@ Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
             transition: opacity 0.5s ease-in-out; }
     .header svg .loader.finished {
       opacity: 0; }
-  .header .highscore {
+  .header .highscore span {
     font-family: 'Changa One';
     font-size: 24px;
     color: tomato; }

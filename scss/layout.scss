@@ -55,7 +55,13 @@ body, html {
             width: calc(100% - 104px);
             vertical-align: middle;
         }
+
+        .highscore {
+            display: none;
+        }
     }
+
+
 }
 
 .numbers {
@@ -63,6 +69,7 @@ body, html {
     margin: 0 50px;
 
     @media (max-width:925px) {
+        min-width: 5em;
         margin: 0 50px;
     }
 

@@ -52,7 +52,7 @@ if (Meteor.isClient) {
             if (!Session.get('ready')) {
                 return [];
             }
-            return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
+            return Counts.find({}, {sort: {timestamp: -1}, limit: 30, reactive: true});
         },
     });
 
@@ -61,34 +61,20 @@ if (Meteor.isClient) {
             if (!Session.get('ready')) {
                 return [];
             }
-            return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
+            return Counts.find({}, {sort: {timestamp: -1}, limit: 30, reactive: true});
         },
     });
-
-    function logRenders () {
-        _.each(Object.keys(Template), function (key) {
-            var template = Template[key];
-            var oldRender = template.renderFunction;
-            var counter = 0;
-     
-            template.renderFunction = function () {
-                console.log(key, "render count: ", ++counter);
-                return oldRender.apply(this, arguments);
-            };
-        });
-    }
-        logRenders();
 }
 
 if (Meteor.isServer) {
     Meteor.publish('counts', function () {
-        return Counts.find();
+        return Counts.find({}, {sort: {timestamp: -1}, limit: 30, reactive: true});
     });
 }
 
 Meteor.methods({
     count: function(number) {
-        this.unblock();
+        //this.unblock();
         var topCount = Counts.findOne({}, {sort: {timestamp: -1}});
         number = number || 0;
 
@@ -110,5 +96,11 @@ Meteor.methods({
             timestamp: new Date(),
             wrong: false
         });
+
+        if (Meteor.isServer) {
+            Meteor.publish('counts', function () {
+                return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
+            });
+        }
     }
 });

@@ -3,8 +3,14 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    '../countwith.me.css': '../scss/countwith.me.scss'
+                    '../.countwith.me.css': '../scss/countwith.me.scss'
                 }
+            }
+        },
+        autoprefixer: {
+            dist: {
+                src: '../.countwith.me.css',
+                dest: '../countwith.me.css'
             }
         },
         copy: {
@@ -24,7 +30,7 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['../scss/**/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass', 'autoprefixer'],
             }
         }
     });
@@ -33,5 +39,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
 };

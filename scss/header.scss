@@ -53,8 +53,8 @@ $offset: 2*3.14*$radius;
             stroke-linecap: round;
             stroke-dashoffset: 0;
             transform-origin: center;
-            -webkit-animation: dasher 1.5s ease-in-out infinite,
-                               rotator 1.5s linear infinite;
+            @include animation(dasher 1.5s ease-in-out infinite,
+                               rotator 1.5s linear infinite);
             transition: opacity 0.5s ease-in-out;
             &.finished {
                 opacity: 0;
@@ -63,18 +63,18 @@ $offset: 2*3.14*$radius;
     }
 }
 
-@-webkit-keyframes dasher {
+@include keyframes(dasher) {
     0%   { stroke-dashoffset: $offset; }
     50%  { stroke-dashoffset: $offset/4; }
     100% { stroke-dashoffset: $offset;}
 }
 
-@-webkit-keyframes rotator {
+@include keyframes(rotator) {
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-@-webkit-keyframes hide {
+@include keyframes(hide) {
     0%   { opacity: 1; }
     100% { opacity: 0; }
 }

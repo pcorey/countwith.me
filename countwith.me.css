@@ -112,6 +112,8 @@ Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
     stroke-dashoffset: 0;
     transform-origin: center;
     -webkit-animation: dasher 1.5s ease-in-out infinite, rotator 1.5s linear infinite;
+    -moz-animation: dasher 1.5s ease-in-out infinite, rotator 1.5s linear infinite;
+    animation: dasher 1.5s ease-in-out infinite, rotator 1.5s linear infinite;
     transition: opacity 0.5s ease-in-out; }
     .header svg .loader.finished {
       opacity: 0; }
@@ -123,12 +125,46 @@ Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
     stroke-dashoffset: 72.22; }
   100% {
     stroke-dashoffset: 288.88; } }
+@-moz-keyframes dasher {
+  0% {
+    stroke-dashoffset: 288.88; }
+  50% {
+    stroke-dashoffset: 72.22; }
+  100% {
+    stroke-dashoffset: 288.88; } }
+@keyframes dasher {
+  0% {
+    stroke-dashoffset: 288.88; }
+  50% {
+    stroke-dashoffset: 72.22; }
+  100% {
+    stroke-dashoffset: 288.88; } }
 @-webkit-keyframes rotator {
   0% {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+@-moz-keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 @-webkit-keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@-moz-keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes hide {
   0% {
     opacity: 1; }
   100% {

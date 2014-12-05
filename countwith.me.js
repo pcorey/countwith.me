@@ -4,10 +4,7 @@ var prompt = '???';
 if (Meteor.isClient) {
 
     Meteor.subscribe('counts', function() {
-        setTimeout(function() {
-            Session.set('ready', true);
-        }, 2000);
-        
+        Session.set('ready', true);
     });
 
     function count(input) {

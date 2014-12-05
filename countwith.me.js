@@ -4,7 +4,6 @@ var prompt = '???';
 if (Meteor.isClient) {
 
     Meteor.subscribe('counts', function() {
-        console.log('ready!');
         Session.set('ready', true);
     });
 
@@ -96,11 +95,5 @@ Meteor.methods({
             timestamp: new Date(),
             wrong: false
         });
-
-        if (Meteor.isServer) {
-            Meteor.publish('counts', function () {
-                return Counts.find({}, {sort: {timestamp: -1}, limit: 30});
-            });
-        }
     }
 });

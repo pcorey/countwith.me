@@ -7,6 +7,8 @@ if (Meteor.isClient) {
         Session.set('ready', true);
     });
 
+    Meteor.subscribe('highscore');
+
     function count(input) {
         if (input.innerHTML && input.innerHTML != prompt) {
             Meteor.call('count', parseInt(input.innerHTML));
@@ -49,6 +51,14 @@ if (Meteor.isClient) {
         },
         ready: function() {
             return Session.get('ready');
+        },
+        highscore: function() {
+            var score = Counts.find({wrong: false}, {sort: {number: -1}, limit: 1}).fetch()[0];
+
+            if (!score) {
+                return {number: 1};
+            }
+            return score;
         }
     });
 
@@ -74,6 +84,10 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
     Meteor.publish('counts', function () {
         return Counts.find({}, {sort: {timestamp: -1}, limit: 30, reactive: true});
+    });
+
+    Meteor.publish('highscore', function() {
+        return Counts.find({wrong: false}, {sort: {number: -1}, limit: 1});
     });
 }
 

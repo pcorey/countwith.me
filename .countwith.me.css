@@ -115,6 +115,10 @@ Loading throbber inspired by http://codepen.io/mrrocks/pen/EiplA?editors=110
     transition: opacity 0.5s ease-in-out; }
     .header svg .loader.finished {
       opacity: 0; }
+  .header .highscore {
+    font-family: 'Changa One';
+    font-size: 24px;
+    color: tomato; }
 
 @keyframes dasher {
   0% {

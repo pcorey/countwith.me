@@ -61,6 +61,11 @@ $offset: 2*3.14*$radius;
             }
         }
     }
+    .highscore {
+        font-family: 'Changa One';
+        font-size: 24px;
+        color: tomato;
+    }
 }
 
 @keyframes dasher {

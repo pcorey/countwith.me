@@ -1,4 +1,6 @@
 Counts = new Mongo.Collection('counts');
+Meta = new Mongo.Collection('meta');
+
 var prompt = '???';
 
 if (Meteor.isClient) {
@@ -7,7 +9,7 @@ if (Meteor.isClient) {
         Session.set('ready', true);
     });
 
-    Meteor.subscribe('highscore');
+    Meteor.subscribe('meta');
 
     function count(input) {
         if (input.innerHTML && input.innerHTML != prompt) {
@@ -52,13 +54,16 @@ if (Meteor.isClient) {
         ready: function() {
             return Session.get('ready');
         },
-        highscore: function() {
-            var score = Counts.find({wrong: false}, {sort: {number: -1}, limit: 1}).fetch()[0];
+        meta: function() {
+            var meta = Meta.findOne({});
 
-            if (!score) {
-                return {number: 1};
+            if (!meta) {
+                return {
+                    highscore: 1,
+                    count: 0
+                };
             }
-            return score;
+            return meta;
         }
     });
 
@@ -86,16 +91,28 @@ if (Meteor.isServer) {
         return Counts.find({}, {sort: {timestamp: -1}, limit: 30, reactive: true});
     });
 
-    Meteor.publish('highscore', function() {
-        return Counts.find({wrong: false}, {sort: {number: -1}, limit: 1});
+    Meteor.publish('meta', function() {
+        return Meta.find({});
     });
 }
 
 Meteor.methods({
     count: function(number) {
-        //this.unblock();
+        var meta = Meta.findOne({});
         var topCount = Counts.findOne({}, {sort: {timestamp: -1}});
         number = number || 0;
+
+        if (!meta) {
+            Meta.insert({
+                count: 1,
+                highscore: number
+            });
+        }
+        else {
+            Meta.update({}, {
+                $inc: {'count': 1}
+            });
+        }
 
         if (topCount && number != topCount.number + 1) {
             Counts.insert({
@@ -115,5 +132,10 @@ Meteor.methods({
             timestamp: new Date(),
             wrong: false
         });
+        if (!meta.highscore || meta.highscore < number) {
+            Meta.update({}, {
+                $set: {highscore: number}
+            });
+        }
     }
 });
